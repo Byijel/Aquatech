@@ -77,6 +77,11 @@ export class QustListComponent implements OnInit {
   }
 
   toggleExpanded(problem: Problem): void {
+    this.problems.forEach(p => {
+      if (p !== problem) {
+        p.expanded = false;
+      }
+    });
     problem.expanded = !problem.expanded;
   }
 
