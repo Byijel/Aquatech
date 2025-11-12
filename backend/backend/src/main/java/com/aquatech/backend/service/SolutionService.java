@@ -11,8 +11,6 @@ import java.math.BigInteger;
 public class SolutionService {
 
     public String solve(String missionId, String parameters) {
-        // This method will dispatch to the correct solver based on missionId or problem type
-        // For now, we'll use missionId to identify the problem
         switch (missionId) {
             case "540b72b3-e57b-4ab7-8997-98f23c4f328b": // Perfect Number
                 return findNthPerfectNumber(parameters);
@@ -38,17 +36,9 @@ public class SolutionService {
     }
 
     // --- Solver Methods ---
-
-    // Perfect Number in the nth position (10-based)
-    // This is a complex problem. For simplicity, I will hardcode the first few perfect numbers
-    // and assume the 'nth element' parameter refers to an index within this list.
-    // A more robust solution would involve a primality test and Mersenne prime generation.
     private String findNthPerfectNumber(String parametersJson) {
         // Parameters: {"nth element": "5"}
         try {
-            // Parse the JSON to extract "nth element"
-            // This requires a JSON parsing library, which is not ideal for a simple String parameter.
-            // Assuming parameters is just the number for now, or a simple string like "5"
             int n = Integer.parseInt(parametersJson.trim());
             long[] perfectNumbers = {6, 28, 496, 8128, 33550336, 8589869056L, 137438691328L}; // First 7 perfect numbers
             if (n > 0 && n <= perfectNumbers.length) {
@@ -121,9 +111,6 @@ public class SolutionService {
 
     // Missing Fibonacci numbers
     private String findMissingFibonacciNumbers(String parameters) {
-        // Parameters: 2,3,8,13,21,34,55,89,144,377,610,987,1597,2584,4181,6765,10946
-        // The example solution is '233', which is the missing Fibonacci number between 144 and 377.
-        // This implies the input is a comma-separated string of Fibonacci numbers with one missing.
         String[] parts = parameters.split(",");
         List<Long> fibSequence = new ArrayList<>();
         for (String part : parts) {
@@ -144,9 +131,8 @@ public class SolutionService {
             i++;
         }
 
-        // Find the missing number
         for (Long num : fullFib) {
-            if (!fibSequence.contains(num) && num > 1) { // Exclude 0 and 1 if they are not explicitly missing
+            if (!fibSequence.contains(num) && num > 1) {
                 return String.valueOf(num);
             }
         }
@@ -155,8 +141,6 @@ public class SolutionService {
 
     // Replace string at given index in ArrayList
     private String replaceStringInArrayList(String parametersJson) {
-        // Parameters: {"index": "5", "replacement": "GpexG", "arrayList": "['7aX', '13Z', 'Cbdi', 'Wyj9f', 'qsP3', 'PNH', 'ULr', 'KFwU', 'Bp3rV', '23y']"}
-        // This requires a JSON parsing library. For now, I will parse it manually assuming a specific format.
         try {
             // Extract index, replacement, and arrayList manually
             int indexStart = parametersJson.indexOf("\"index\": \"") + "\"index\": \"".length();
@@ -171,12 +155,10 @@ public class SolutionService {
             int arrayListEnd = parametersJson.indexOf("\"", arrayListStart);
             String arrayListString = parametersJson.substring(arrayListStart, arrayListEnd);
 
-            // Parse the arrayListString (e.g., "['7aX', '13Z']") into a List<String>
-            // Remove brackets and split by ', '
-            arrayListString = arrayListString.substring(1, arrayListString.length() - 1); // Remove [' and ']
+            arrayListString = arrayListString.substring(1, arrayListString.length() - 1);
             List<String> list = new ArrayList<>();
             for (String s : arrayListString.split("', '")) {
-                list.add(s.replace("'", "")); // Remove single quotes
+                list.add(s.replace("'", ""));
             }
 
             if (index >= 0 && index < list.size()) {
