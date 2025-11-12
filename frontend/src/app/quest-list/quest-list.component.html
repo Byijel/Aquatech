@@ -187,7 +187,9 @@
         <div class="missions-section" [class.expanded]="problem.expanded">
           <div class="divider"></div>
           <div class="missions-list">
-            <div *ngFor="let mission of problem.mission" class="mission-card" (click)="$event.stopPropagation()">
+            <div *ngFor="let mission of problem.mission" 
+                 class="mission-card" 
+                 (click)="navigateToMission($event, mission.id)">
               <div class="mission-header">
                 <div class="mission-title-group">
                   <svg class="mission-icon" [ngClass]="mission.solved ? 'solved' : 'unsolved'" fill="none" stroke="currentColor" viewBox="0 0 24 24">

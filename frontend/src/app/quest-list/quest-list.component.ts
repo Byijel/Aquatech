@@ -36,7 +36,7 @@ export class QuestListComponent implements OnInit {
   loading: boolean = true;
   particles: any[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.generateParticles();
@@ -87,5 +87,10 @@ export class QuestListComponent implements OnInit {
 
   getSolvedCount(problem: Problem): number {
     return problem.mission.filter(m => m.solved).length;
+  }
+
+  navigateToMission(event: Event, missionId: string): void {
+    event.stopPropagation();
+    this.router.navigate(['/missions', missionId]);
   }
 }

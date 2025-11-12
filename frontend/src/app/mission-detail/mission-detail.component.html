@@ -1,68 +1,224 @@
-<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-8">
-  <div *ngIf="loading" class="text-center text-gray-500">Loading mission details...</div>
+<div class="underwater-background">
+  <div class="caustic-light"></div>
+  
+  <div class="light-ray"></div>
+  <div class="light-ray"></div>
+  <div class="light-ray"></div>
+  <div class="light-ray"></div>
+  <div class="light-ray"></div>
+  
+  <div class="fish" style="top: 15%">
+    <svg width="70" height="45" viewBox="0 0 70 45" fill="none">
+      <ellipse cx="35" cy="22" rx="22" ry="13" fill="#4ECCA3" />
+      <path d="M 13 22 L 4 14 L 4 30 Z" fill="#3DBDA0" />
+      <circle cx="48" cy="18" r="2.5" fill="#2A5F6B" />
+    </svg>
+  </div>
+  <div class="fish" style="top: 55%">
+    <svg width="65" height="42" viewBox="0 0 65 42" fill="none">
+      <ellipse cx="32" cy="21" rx="21" ry="13" fill="#67D5ED" />
+      <path d="M 11 21 L 3 14 L 3 28 Z" fill="#5BC5DB" />
+      <circle cx="45" cy="18" r="2.5" fill="#2A5F6B" />
+    </svg>
+  </div>
+  
+  <div class="jellyfish" style="top: 35%; left: 75%">
+    <svg width="55" height="75" viewBox="0 0 55 75" fill="none">
+      <ellipse cx="28" cy="23" rx="18" ry="16" fill="#6DD5ED" opacity="0.8" />
+      <ellipse cx="28" cy="23" rx="13" ry="11" fill="#7DE2F5" opacity="0.6" />
+      <path d="M 18 38 Q 16 51 13 65" stroke="#5BC8DB" stroke-width="2" fill="none" opacity="0.7" />
+      <path d="M 23 40 Q 21 56 20 70" stroke="#5BC8DB" stroke-width="2" fill="none" opacity="0.7" />
+      <path d="M 28 41 Q 28 54 26 68" stroke="#5BC8DB" stroke-width="2" fill="none" opacity="0.7" />
+      <path d="M 33 40 Q 35 56 36 70" stroke="#5BC8DB" stroke-width="2" fill="none" opacity="0.7" />
+      <path d="M 38 38 Q 40 51 43 65" stroke="#5BC8DB" stroke-width="2" fill="none" opacity="0.7" />
+    </svg>
+  </div>
+</div>
 
-  <div *ngIf="!loading && mission">
-    <h2 class="text-3xl font-bold text-blue-700 mb-4">{{ mission.name }}</h2>
-    <p class="text-gray-700 mb-4">{{ mission.objective }}</p>
+<div class="underwater-floor">
+  <div class="floor-gradient"></div>
+  <div class="coral-container">
+    <svg class="seaweed" width="80" height="200" viewBox="0 0 80 200" fill="none">
+      <path d="M 30 200 Q 25 170 30 140 Q 35 110 28 80 Q 25 50 30 20" stroke="#2D5F4E" stroke-width="12" fill="none" stroke-linecap="round" />
+      <path d="M 50 200 Q 55 165 50 130 Q 45 95 52 60 Q 55 30 50 10" stroke="#3A7A63" stroke-width="10" fill="none" stroke-linecap="round" />
+    </svg>
+    
+    <svg class="coral" width="120" height="180" viewBox="0 0 120 180" fill="none">
+      <ellipse cx="60" cy="170" rx="50" ry="15" fill="#0f2027" />
+      <path d="M 40 170 Q 35 140 30 100 Q 28 80 25 60" stroke="#8B4789" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.8" />
+      <path d="M 60 170 Q 58 130 55 80 Q 52 55 48 30" stroke="#A6699A" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.9" />
+      <path d="M 80 170 Q 82 135 85 90 Q 88 65 92 40" stroke="#8B4789" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.75" />
+      <circle cx="25" cy="60" r="6" fill="#B47FA8" opacity="0.6" />
+      <circle cx="48" cy="30" r="7" fill="#B47FA8" opacity="0.6" />
+      <circle cx="92" cy="40" r="6" fill="#B47FA8" opacity="0.6" />
+    </svg>
+    
+    <svg class="seaweed" width="70" height="190" viewBox="0 0 70 190" fill="none">
+      <path d="M 25 190 Q 30 160 25 130 Q 20 100 28 70 Q 30 40 25 15" stroke="#2D5F4E" stroke-width="10" fill="none" stroke-linecap="round" />
+      <path d="M 45 190 Q 40 155 45 120 Q 50 85 43 50 Q 40 25 45 5" stroke="#3A7A63" stroke-width="9" fill="none" stroke-linecap="round" />
+    </svg>
+    
+    <svg class="coral" width="100" height="130" viewBox="0 0 100 130" fill="none">
+      <ellipse cx="50" cy="125" rx="40" ry="10" fill="#0f2027" />
+      <circle cx="35" cy="100" r="18" fill="#4A7C8C" opacity="0.7" />
+      <circle cx="30" cy="95" r="12" fill="#5A8C9C" opacity="0.6" />
+      <circle cx="65" cy="105" r="20" fill="#4A7C8C" opacity="0.7" />
+      <circle cx="70" cy="98" r="12" fill="#6A9CAC" opacity="0.6" />
+    </svg>
+  </div>
+</div>
 
-    <div class="flex flex-wrap gap-4 mb-6">
-      <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
-        Difficulty: {{ mission.difficulty }}
-      </span>
-      <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">
-        Attempts: {{ mission.remainingAttempts }}
-      </span>
-      <span class="px-3 py-1 rounded-full text-sm"
-            [ngClass]="mission.solved ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'">
-        {{ mission.solved ? '✓ Solved' : '✗ Unsolved' }}
-      </span>
-      <span *ngIf="mission.effect" class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
-        Effect: {{ mission.effect }}
-      </span>
+<div class="page-container">
+  <header class="header">
+    <button routerLink="/quests" class="back-button">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      <span>Back to Quests</span>
+    </button>
+    <h1 class="title">MISSION DETAIL</h1>
+  </header>
+
+  <main class="content">
+    <div *ngIf="loading" class="loading-container">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">Loading mission details...</p>
     </div>
 
-    <div *ngIf="mission.parameters" class="mb-6 p-4 bg-gray-50 rounded-md border border-gray-200">
-      <h3 class="text-xl font-semibold text-gray-800 mb-2">Parameters:</h3>
-      <pre class="bg-gray-100 p-3 rounded-md text-sm overflow-x-auto">{{ mission.parameters }}</pre>
-    </div>
+    <div *ngIf="!loading && mission" class="mission-detail-card">
+      <div class="card-pattern"></div>
+      
+      <div class="detail-header">
+        <div class="mission-title-section">
+          <div class="icon-wrapper">
+            <svg class="mission-icon" [ngClass]="mission.solved ? 'solved' : 'unsolved'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path *ngIf="mission.solved" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path *ngIf="!mission.solved" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h2 class="mission-title">{{ mission.name }}</h2>
+        </div>
+        
+        <div class="badges-container">
+          <div class="badge difficulty-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>Level {{ mission.difficulty }}</span>
+          </div>
+          <div class="badge attempts-badge">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{{ mission.remainingAttempts }} Attempts</span>
+          </div>
+          <div class="badge status-badge" [ngClass]="mission.solved ? 'solved' : 'unsolved'">
+            <svg *ngIf="mission.solved" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <svg *ngIf="!mission.solved" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span>{{ mission.solved ? 'Solved' : 'Unsolved' }}</span>
+          </div>
+        </div>
+      </div>
 
-    <h3 class="text-xl font-semibold text-blue-600 mb-3">Solve Mission:</h3>
-    <div class="space-y-4">
-      <button
-        (click)="generateSolution()"
-        class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-200"
-        [disabled]="loading || generatedSolution"
-      >
-        Generate Solution
-      </button>
+      <div class="divider"></div>
 
-      <div *ngIf="generatedSolution" class="mt-4 p-3 bg-gray-100 rounded-md border border-gray-200">
-        <h4 class="font-semibold text-gray-800 mb-2">Generated Solution:</h4>
-        <pre class="bg-white p-2 rounded-md text-sm overflow-x-auto">{{ generatedSolution }}</pre>
-        <button
-          (click)="submitSolution()"
-          class="w-full mt-3 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200"
-          [disabled]="loading"
-        >
-          Upload Solution
-        </button>
+      <div class="detail-content">
+        <div class="objective-section">
+          <h3 class="section-title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Objective
+          </h3>
+          <p class="objective-text">{{ mission.objective }}</p>
+        </div>
+
+        <div *ngIf="mission.effect" class="effect-section">
+          <h3 class="section-title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+            Effect
+          </h3>
+          <p class="effect-text">{{ mission.effect }}</p>
+        </div>
+
+        <div *ngIf="mission.parameters" class="parameters-section">
+          <h3 class="section-title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            Parameters
+          </h3>
+          <pre class="parameters-code">{{ mission.parameters }}</pre>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="solution-section">
+          <h3 class="section-title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            Solve Mission
+          </h3>
+
+          <button
+            (click)="generateSolution()"
+            class="action-button generate-button"
+            [disabled]="loading || generatedSolution"
+          >
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>{{ generatedSolution ? 'Solution Generated' : 'Generate Solution' }}</span>
+          </button>
+
+          <div *ngIf="generatedSolution" class="generated-solution">
+            <h4 class="solution-label">Generated Solution:</h4>
+            <pre class="solution-code">{{ generatedSolution }}</pre>
+            <button
+              (click)="submitSolution()"
+              class="action-button submit-button"
+              [disabled]="loading"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+              </svg>
+              <span>Upload Solution</span>
+            </button>
+          </div>
+
+          <div *ngIf="submissionMessage" class="message-container" 
+               [ngClass]="{
+                 'success': submissionMessage.includes('successfully') || submissionMessage.includes('generated'),
+                 'error': submissionMessage.includes('Failed'),
+                 'info': submissionMessage.includes('Generating') || submissionMessage.includes('Submitting')
+               }">
+            <svg *ngIf="submissionMessage.includes('successfully')" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <svg *ngIf="submissionMessage.includes('Failed')" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <svg *ngIf="submissionMessage.includes('Generating') || submissionMessage.includes('Submitting')" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{{ submissionMessage }}</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div *ngIf="submissionMessage" class="mt-4 p-3 rounded-md"
-         [ngClass]="{'bg-green-100 text-green-800': submissionMessage.includes('successfully'),
-                      'bg-red-100 text-red-800': submissionMessage.includes('Failed'),
-                      'bg-blue-100 text-blue-800': submissionMessage.includes('Submitting')}">
-      {{ submissionMessage }}
+    <div *ngIf="!loading && !mission" class="error-container">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <p class="error-text">Mission not found or an error occurred.</p>
     </div>
-  </div>
-
-  <div *ngIf="!loading && !mission" class="text-center text-red-500">Mission not found or an error occurred.</div>
-
-  <button
-    routerLink="/"
-    class="inline-block mt-8 bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300 transition cursor-pointer"
-  >
-    ← Back to All Quests
-  </button>
+  </main>
 </div>
