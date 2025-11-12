@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Mission3Component } from './quest-list/quest-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, Mission3Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
