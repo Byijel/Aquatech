@@ -29,7 +29,7 @@ export class ApiService {
     const params = new HttpParams()
       .set('missionId', missionId)
       .set('parameters', parameters);
-    // Call the local backend for solution generation
+
     return this.http.get('http://localhost:8080/api/solution', { params: params, responseType: 'text' });
   }
 }
