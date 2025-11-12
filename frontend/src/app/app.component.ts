@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { QustListComponent } from './quest-list/quest-list.component';
+import { QuestListComponent } from './quest-list/quest-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, QustListComponent],
+  imports: [RouterOutlet, QuestListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
