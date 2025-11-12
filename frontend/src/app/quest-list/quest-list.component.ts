@@ -31,8 +31,8 @@ interface Problem {
   templateUrl: './quest-list.component.html',
   styleUrl: './quest-list.component.css',
 })
-export class QustListComponent implements OnInit {
-  problems: Problem[] = [];
+export class QuestListComponent implements OnInit {
+  problem: Problem[] = [];
   loading: boolean = true;
   particles: any[] = [];
 
@@ -46,7 +46,7 @@ export class QustListComponent implements OnInit {
         console.log('Quest data:', data);
 
         if (data.problems && Array.isArray(data.problems)) {
-          this.problems = data.problems.map((p: Problem) => ({
+          this.problem = data.problems.map((p: Problem) => ({
             ...p,
             expanded: false
           }));
@@ -77,7 +77,7 @@ export class QustListComponent implements OnInit {
   }
 
   toggleExpanded(problem: Problem): void {
-    this.problems.forEach(p => {
+    this.problem.forEach(p => {
       if (p !== problem) {
         p.expanded = false;
       }

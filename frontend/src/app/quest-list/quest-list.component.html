@@ -60,29 +60,8 @@
       <path d="M 12 22 L 3 15 L 3 29 Z" fill="#6FB98F" />
       <circle cx="47" cy="19" r="2.5" fill="#2A5F6B" />
     </svg>
-      </div>
+  </div>
 
-<<<<<<< HEAD
-      <div class="mt-4">
-        <h4 class="font-semibold text-gray-800 mb-2">Missions:</h4>
-        <div *ngFor="let mission of problem.mission" class="ml-4 mb-3 p-3 bg-gray-50 rounded border-l-4 border-blue-500">
-          <a [routerLink]="['/missions', mission.id]" class="block cursor-pointer hover:bg-gray-100 p-2 rounded -m-2">
-            <p class="font-medium text-gray-900">{{ mission.name }}</p>
-            <p class="text-sm text-gray-600 mt-1">{{ mission.objective }}</p>
-            <div class="flex gap-2 mt-2 text-xs">
-              <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded">
-                Difficulty: {{ mission.difficulty }}
-              </span>
-              <span class="px-2 py-1 bg-orange-100 text-orange-800 rounded">
-                Attempts: {{ mission.remainingAttempts }}
-              </span>
-              <span class="px-2 py-1 rounded"
-                    [ngClass]="mission.solved ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'">
-                {{ mission.solved ? '✓ Solved' : '✗ Unsolved' }}
-              </span>
-            </div>
-          </a>
-=======
   <div class="jellyfish" style="top: 25%; left: 65%">
     <svg width="60" height="80" viewBox="0 0 60 80" fill="none">
       <ellipse cx="30" cy="25" rx="20" ry="18" fill="#6DD5ED" opacity="0.8" />
@@ -169,8 +148,8 @@
   </header>
 
   <main class="content">
-    <div *ngIf="!loading && problems.length > 0; else loadingTemplate" class="challenges-grid">
-      <div *ngFor="let problem of problems" class="challenge-card" [class.expanded]="problem.expanded" (click)="toggleExpanded(problem)">
+    <div *ngIf="!loading && problem.length > 0; else loadingTemplate" class="challenges-grid">
+      <div *ngFor="let problem of problem" class="challenge-card" [class.expanded]="problem.expanded" (click)="toggleExpanded(problem)">
         <div class="card-pattern"></div>
         
         <div class="card-header">
@@ -222,21 +201,20 @@
               <div class="mission-stats">
                 <span class="stat">Difficulty: {{ mission.difficulty }}</span>
                 <span class="stat attempts">Attempts: {{ mission.remainingAttempts }}</span>
-        </div>
+              </div>
             </div>
           </div>
->>>>>>> 19d5187cec9935c251990db7d0805d3ab31db92d
         </div>
 
         <div class="expand-indicator" *ngIf="!problem.expanded">
           ▼
+        </div>
       </div>
     </div>
-  </div>
 
-  <ng-template #loadingTemplate>
+    <ng-template #loadingTemplate>
       <p class="loading-text" *ngIf="loading">Loading quest data...</p>
-      <p class="error-text" *ngIf="!loading && problems.length === 0">No problems found.</p>
-  </ng-template>
+      <p class="error-text" *ngIf="!loading && problem.length === 0">No problem found.</p>
+    </ng-template>
   </main>
 </div>
