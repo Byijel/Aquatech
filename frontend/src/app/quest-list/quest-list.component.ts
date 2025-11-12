@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './quest-list.component.html',
   styleUrl: './quest-list.component.css',
 })
-export class Mission3Component implements OnInit {
+export class QustListComponent implements OnInit {
   problems: any[] = [];
   loading: boolean = true;
 
